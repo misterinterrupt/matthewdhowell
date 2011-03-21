@@ -1,0 +1,5 @@
+django pushy-articulator app
+ - button in admin for gaining a permanent access token for blogger 
+ - authorize access to blogger via oauth2
+ - on save of article model, utilize oauth tokens to push articles to blogger
+ - 

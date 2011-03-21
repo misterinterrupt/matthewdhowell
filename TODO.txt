@@ -1,0 +1,4 @@
+* github css3 buttons
+* blogger push on publish
+* integrate django-resume
+* deploy
