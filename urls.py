@@ -24,3 +24,12 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^admin_media/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': settings.ADMIN_MEDIA_ROOT}),
+        
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+                {'document_root': settings.MEDIA_ROOT}),
+    )

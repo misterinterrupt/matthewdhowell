@@ -48,13 +48,13 @@ USE_I18N = False
 USE_L10N = False
 
 # Absolute path to the directory that holds media.
-STATIC_DOC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_DOC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
 STATIC_URL = '/static/'
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
-ADMIN_MEDIA_ROOT = 'admin_media'
+ADMIN_MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'admin-media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -64,7 +64,7 @@ MEDIA_URL = 'media/'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/static/'
+ADMIN_MEDIA_PREFIX = 'admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'cu)wnx703=i5dhibiodpl_k)a9d6po2f)h$o4yq=d*_=_$d4r#'
