@@ -49,15 +49,17 @@ USE_L10N = False
 
 # Absolute path to the directory that holds media.
 STATIC_DOC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
+STATIC_URL = '/static/'
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static')
+ADMIN_MEDIA_ROOT = 'admin_media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -88,16 +90,17 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),
+    os.path.join(PROJECT_ROOT, 'contrib/admin/templates/admin'),
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.messages',
-    # Uncomment the next line to enable the admin:
+    'django.contrib.staticfiles',
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -106,6 +109,6 @@ INSTALLED_APPS = (
 )
 
 try:
-    from local_settings import *
+    from settings_local import *
 except(ImportError):
     pass
