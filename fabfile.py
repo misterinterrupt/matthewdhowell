@@ -11,7 +11,7 @@ env.directory = '/home/misterinterrupt/.virtualenvs/matthewdhowell.com/bin/pytho
 env.activate = 'workon matthewdhowell.com'
 env.home_path = '/home/misterinterrupt'
 env.domain_path = '%(home_path)s/matthewdhowell.com' % {'home_path' : env.home_path}
-env.app_path = '%(domain_path)s/matthewdhowell.com' % {'domain_path' : env.domain_path}
+#env.app_path = '%(domain_path)s/matthewdhowell.com' % {'domain_path' : env.domain_path}
 env.git_origin = 'git@github.com:misterinterrupt/matthewdhowell.git'
 env.user = 'misterinterrupt'
 
@@ -58,7 +58,7 @@ def get_version():
 @roles('production')
 def production_deploy():
     git_reset_checkout(env.domain_path)
-    django_syncdb(env.app_path)
+    django_syncdb(env.domain_path)
     copy_passenger_wsgi(env.domain_path)
     install_requirements(env.domain_path)
     passenger_restart(env.domain_path)
