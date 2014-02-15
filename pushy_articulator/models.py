@@ -13,6 +13,15 @@ class PushyArticle(models.Model):
         """
         pass
     
+    def auth_google():
+        pass
+        
+    def auth_facebook():
+        pass
+        
+    def auth_twitter():
+        pass
+        
     def __unicode__(self):
         return self.title
     

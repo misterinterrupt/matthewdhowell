@@ -15,7 +15,7 @@
   {% for a in articles %}
   <div class='article'>
     <h2><a href='{{ a.slug }}'>{{ a.title }}</a></h2>
-    <p>{{ a.content }}</p>
+    <p>{{ a.content|safe }}</p>
     <p>published: {{ a.published }}</p>
     <p>modified: {{ a.last_modified }}</p>
   </div>

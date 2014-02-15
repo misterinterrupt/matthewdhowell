@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
-from matthewdhowell.pushy_articulator.views import index
+from pushy_articulator.views import index
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
