@@ -1,0 +1,5 @@
+package: pushy-articulator
+author: Matthew D. Howell (matthewdhowell@gmail.com)
+url: http://github.com/misterinterrupt/pushy-articulator
+license: BSD licence
+Create and edit articles and publish them to Blogger, facebook, & Twitter

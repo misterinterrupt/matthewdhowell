@@ -7,12 +7,12 @@ env.roledefs = {
  
 # Set the user to use for ssh
 env.hosts = ['servername']
-env.directory = '/home/misterinterrupt/.virtualenvs/matthewdhowell/bin/python'
-env.activate = 'workon matthewdhowell'
+env.directory = '/home/misterinterrupt/.virtualenvs/matthewdhowell.com/bin/python'
+env.activate = 'workon matthewdhowell.com'
 env.home_path = '/home/misterinterrupt'
 env.domain_path = '%(home_path)s/matthewdhowell.com' % {'home_path' : env.home_path}
 env.app_path = '%(domain_path)s/matthewdhowell.com' % {'domain_path' : env.domain_path}
-env.git_origin = 'git@github.com:misterinterrupt/matthewdhowell.com.git'
+env.git_origin = 'git@github.com:misterinterrupt/matthewdhowell.git'
 env.user = 'misterinterrupt'
 
 def virtualenv(command):
@@ -27,14 +27,12 @@ def django_syncdb(path):
 def git_reset_checkout(path):
     run ('cd %(path)s; git reset --hard; git checkout master; git pull origin master; ' % {'path' : path})
 
-def copy_production_settings(path):
-    put('voidophone/production_settings.py', '%(path)s/local_settings.py' % {'path' : path})
-
 def copy_passenger_wsgi(path):
     put('passenger_wsgi.py', '%(path)s/passenger_wsgi.py' % {'path' : path})
 
 def install_requirements(path):
     virtualenv('pip install -r %(path)s/basic_requirements.txt' % {'path' : path})
+
 def clone_repo_to_path(repo, path):
     run('git clone %(repo)s %(path)s' % {'repo': repo, 'path' : path})
 
@@ -60,7 +58,6 @@ def get_version():
 @roles('production')
 def production_deploy():
     git_reset_checkout(env.domain_path)
-    copy_production_settings(env.app_path)
     django_syncdb(env.app_path)
     copy_passenger_wsgi(env.domain_path)
     install_requirements(env.domain_path)
@@ -70,7 +67,6 @@ def production_deploy():
 def production_deploy_destructive():
     delete_path(env.domain_path)
     clone_repo_to_path(env.git_origin, env.domain_path)
-    copy_production_settings(env.app_path)
     copy_passenger_wsgi(env.domain_path)
     create_passenger_restart(env.domain_path)
     install_requirements(env.domain_path)
