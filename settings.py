@@ -106,6 +106,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     "south",
     'pushy_articulator',
+    'resume',
 )
 
 try:

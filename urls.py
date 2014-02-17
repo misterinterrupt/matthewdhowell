@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # Example:
     # (r'^matthewdhowell/', include('matthewdhowell.foo.urls')),
     (r'^$', index),
+    (r'^resume/', include('resume.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     
