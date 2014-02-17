@@ -30,6 +30,6 @@ if settings.DEBUG:
         (r'^admin_media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.ADMIN_MEDIA_ROOT}),
         
-        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve',
                 {'document_root': settings.MEDIA_ROOT}),
     )
