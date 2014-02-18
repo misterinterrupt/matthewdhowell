@@ -56,7 +56,9 @@
           <p class="title">{{ job.title }}</p>
           <p class="period">(<abbr class="dtstart" title="{{ job.full_start_date }}">{{ job.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ job.full_end_date }}">{{ job.formatted_end_date }}</abbr>)</p>
         </div>
-        <div class="description">{{ job.description }}</div>
+        <div class="description">
+          <p>{{ job.description }}</p>
+        </div>
         <div class="achievements">
           <ul>
             {% for a in job.accomplishment_set.all %}
