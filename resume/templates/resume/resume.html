@@ -94,7 +94,7 @@
        <li class="education vevent vcard">
         <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
         <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
-        <div class="summary"> {{ edu.summary }}</div>
+        <div class="edu-summary"> {{ edu.summary }}</div>
        </li>
        {% endfor %}
       </ul>

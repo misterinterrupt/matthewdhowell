@@ -58,6 +58,8 @@ header, footer {
   padding-left: 0.3em; }
 #resume ul {
   padding-left: 0.3em; }
+  #resume div.summary {
+  padding: 3em 0; }
   #resume ul#job-list {
   padding-top: 1.5em; }
   #resume ul li {
@@ -92,11 +94,17 @@ header, footer {
         padding-left: 2em; }
         #resume ul li ul li {
           list-style-type: disc; }
+  #resume div.skills {
+  padding: 2em 0 1.5em; }
   #resume ul#skill-list li {
     list-style: none; }
     #resume ul#skill-list li .skillset-title {
       font-weight: bold; }
     #resume ul#skill-list li a {
       margin-left: 0.2em; }
+  #resume div.education {
+    padding-bottom: 2em; }
+  #resume div.education ul#edu-list li div.edu-summary{
+  padding-top: 1.5em; }
 
 /* end resume content */
