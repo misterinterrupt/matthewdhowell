@@ -35,61 +35,74 @@
   {% endwith %}
   <!-- End Personal Contact Information --> 
  
-    <div class="clear"></div> 
- 
-    <h2>Summary</h2>
-    <p class="summary">
-      {% with overview|first as overview %}
-      {{ overview.text|safe }}
-      {% endwith %}
-    </p>  
-    
-    <h2>Work Experience</h2>
-    <ul id="job-list" class="vcalendar">
-    {% for job in job_list %}
-     {% if job.is_public %}
-     <li class="experience vevent vcard">
-      <span class="org">{{ job.company }}</span> - <span class="location">{{ job.location }}</span>
-      <br />
-      <a class="include" href="#name"></a>
-      <span class="title">{{ job.title }}</span> 
-      <span class="period">(<abbr class="dtstart" title="{{ job.full_start_date }}">{{ job.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ job.full_end_date }}">{{ job.formatted_end_date }}</abbr>)</span>
-      
-      <div class="description">{{ job.description }}</div>
-      <ul class="achievements">
-        {% for a in job.accomplishment_set.all %}
-          <li>{{ a.description }}</li>
+    <div class="summary"> 
+      <h2>Summary</h2>
+      <p>
+        {% with overview|first as overview %}
+        {{ overview.text|safe }}
+        {% endwith %}
+      </p>  
+    </div>
+    <div class="work-experience">
+      <h2>Work Experience</h2>
+      <ul id="job-list" class="vcalendar">
+      {% for job in job_list %}
+       {% if job.is_public %}
+       <li class="experience-item vevent vcard">
+        <div class="job-info">
+          <h4 class="org">{{ job.company }}</h4>
+          <h5 class="location">{{ job.location }}</h5>
+          <a class="include" href="#name"></a>
+          <p class="title">{{ job.title }}</p>
+          <p class="period">(<abbr class="dtstart" title="{{ job.full_start_date }}">{{ job.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ job.full_end_date }}">{{ job.formatted_end_date }}</abbr>)</p>
+        </div>
+        <div class="description">{{ job.description }}</div>
+        <div class="achievements">
+          <ul>
+            {% for a in job.accomplishment_set.all %}
+              <li>{{ a.description }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+       {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <ul id="skill-list">
+        {% for skillset in skill_sets %}
+        <li class="skillset"><span class="skillset-title">{{ skillset.name }}:&nbsp;</span>
+          {% for s in skillset.skill_set.all %}
+            <a href="{{ s.skill_url }}" class="skill" rel="tag">{{ s.name }}</a>{% if not forloop.last %},&nbsp;{% endif %}
+          {% endfor %}
+        </li>
         {% endfor %}
       </ul>
-    </li>
-     {% endif %}
-    {% endfor %}
-    </ul>
+    </div>
 
-    <h2>Skills</h2>
-    <ul id="skill-list">
-      {% for skillset in skill_sets %}
-      <li class="skillset"><span class="skillset-title">{{ skillset.name }}:&nbsp;</span>
-        {% for s in skillset.skill_set.all %}
-          <a href="{{ s.skill_url }}" class="skill" rel="tag">{{ s.name }}</a>{% if not forloop.last %},&nbsp;{% endif %}
-        {% endfor %}
-      </li>
-      {% endfor %}
-    </ul>
-    
-    <h2>Education</h2>
-    <ul id="edu-list" class="vcalendar">
-    {% for edu in education %}
-     <li class="education vevent vcard">
-      <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
-      <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
-      <div class="summary"> {{ edu.summary }}</div>
-     </li>
-     {% endfor %}
-    </ul>
-    
+    <div class="clear"></div>
+
+    <div class="education">
+      <h2>Education</h2>
+      <ul id="edu-list" class="vcalendar">
+      {% for edu in education %}
+       <li class="education vevent vcard">
+        <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
+        <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
+        <div class="summary"> {{ edu.summary }}</div>
+       </li>
+       {% endfor %}
+      </ul>
+    </div>    
 </section>
+
 <div class="clear"></div>
+
 </div>
 </div>
 

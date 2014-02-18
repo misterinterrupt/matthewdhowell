@@ -58,17 +58,40 @@ header, footer {
   padding-left: 0.3em; }
 #resume ul {
   padding-left: 0.3em; }
+  #resume ul#job-list {
+  padding-top: 1.5em; }
   #resume ul li {
     list-style: none; }
-    #resume ul li.experience {
-      margin-bottom: 0.8em; }
-      #resume ul li.experience .org {
-        font-size: 1.1em;
-        font-weight: bold; }
-    #resume ul li ul {
-      padding-left: 2em; }
-      #resume ul li ul li {
-        list-style-type: disc; }
+    #resume ul li.experience-item {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2em; }
+      #resume ul li div.job-info {
+        clear: both;
+        float: left;
+        width: 25%; }
+      #resume ul li div.job-info h4 {
+        margin: 0 0 0.2em;
+        font-size: 13pt; }
+      #resume ul li div.job-info h5 {
+        margin: 0 0 0.4em;
+        font-size: 11pt;
+        font-weight: 100; }
+    #resume ul li div.job-info .title, 
+    #resume ul li div.job-info .period {
+      margin: 0.3em 0 0;
+      padding: 0;}
+    #resume ul li div.description {
+        float: right;
+        width: 65%;
+        margin: 0 0 0.5em; }
+    #resume ul li div.achievements {
+        float: right;
+        width: 65%; }
+      #resume ul li ul {
+        padding-left: 2em; }
+        #resume ul li ul li {
+          list-style-type: disc; }
   #resume ul#skill-list li {
     list-style: none; }
     #resume ul#skill-list li .skillset-title {
