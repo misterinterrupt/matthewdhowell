@@ -3,7 +3,7 @@ body {
   margin: 0;
   color: #333333;
   background-color: #f8f8f8;
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Lora", sans-serif;
   font-size: 97.5%;
   /* 16px * 0.875 = 14px */
   line-height: 137.5%;
@@ -16,7 +16,7 @@ a {
   a:hover {
     color: #f78f1e; }
 p {
-  text-align: justify;
+  text-align: left;
   line-height: 1.4em;
   font-size: 12pt; }
 
@@ -99,6 +99,7 @@ header, footer {
         #resume ul li ul li {
           list-style-type: disc;
           position: relative;
+          margin-bottom: 0.6em;
           left: -0.6em; }
   #resume div.skills {
   padding: 2em 0 1.5em; }

@@ -7,6 +7,7 @@
     <script src="/site_media/js/html5.js" />
   <![endif]-->
   <link rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" href="/site_media/css/screen.css" />
+  <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body id="resume">
 <div id="wrap">
@@ -96,7 +97,9 @@
        <li class="education vevent vcard">
         <span class="period"><abbr class="dtstart" title="{{ edu.full_start_date }}">{{ edu.formatted_start_date }}</abbr> - <abbr class="dtend" title="{{ edu.full_end_ate }}">{{ edu.formatted_end_date }}</abbr></span> - 
         <span class="org"><a rel="employer" href="{{ edu.school_url }}" class="summary url" title="{{ edu.name }}">{{ edu.name }}</a></span> - <span class="location">{{ edu.location }}</span>
-        <div class="edu-summary"> {{ edu.summary }}</div>
+        <div class="edu-summary">
+          <p>{{ edu.summary }}</p>
+        </div>
        </li>
        {% endfor %}
       </ul>
